@@ -26,7 +26,7 @@ public class WriteDataToIndexTest {
         //读取索引地址配置
         CasiaEsCreate casiaEsCreate = new CasiaEsCreate("data");
         //设置索引名称及其索引类型
-        casiaEsCreate.setIndexName("test2","test_data");
+        casiaEsCreate.setIndexName("demo_test","test_data");
         //设置 数据列表、主键，写入到索引
         boolean result = casiaEsCreate.writeData(datas,"id");
         System.out.println(result);
