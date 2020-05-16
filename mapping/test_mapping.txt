@@ -1,0 +1,93 @@
+{
+    "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas": 1,
+        "refresh_interval": "5s",
+        "translog": {
+          "flush_threshold_size": "3gb"
+        },
+        "merge": {
+          "scheduler": {
+            "max_thread_count": "1"
+          }
+        },
+        "analysis": {
+          "normalizer": {
+            "my_normalizer": {
+              "type": "custom",
+              "char_filter": [],
+              "filter": [
+                "lowercase",
+                "asciifolding"
+              ]
+            }
+          }
+        }
+    },
+    "mappings": {
+        "test_data": {
+            "dynamic": "false",
+            "_source": {
+                "enabled": true
+            },
+            "properties": {
+                "id": {
+                    "index": "not_analyzed",
+                    "type": "long"
+                },
+                "eid": {
+                    "index": "not_analyzed",
+                    "type": "integer"
+                },
+                "title": {
+                    "analyzer": "ik_max_word",
+                    "search_analyzer": "ik_max_word",
+                    "type": "text"
+                },
+                "content": {
+                    "analyzer": "ik_max_word",
+                    "search_analyzer": "ik_max_word",
+                    "fielddata": true,
+                    "store": true,
+                    "type": "text"
+                },
+                "url": {
+                    "index": "not_analyzed",
+                    "type": "keyword"
+                },
+                "site": {
+                    "index": "not_analyzed",
+                    "type": "keyword"
+                },
+                "domain": {
+                    "index": "not_analyzed",
+                    "type": "keyword",
+                    "normalizer": "my_normalizer"
+                },
+                "support_level": {
+                    "index": "not_analyzed",
+                    "type": "integer"
+                },
+                "keywords": {
+                    "index": "not_analyzed",
+                    "type": "keyword"
+                },
+
+                "ip": {
+                    "type": "ip"
+                },
+                "lal": {
+                    "type": "geo_point"
+                },
+                "pubtime": {
+                    "format": "yyyy-MM-dd HH:mm:ss",
+                    "type": "date"
+                },
+                "addtime": {
+                     "format": "yyyy-MM-dd HH:mm:ss",
+                     "type": "date"
+                }
+            }
+        }
+    }
+}
