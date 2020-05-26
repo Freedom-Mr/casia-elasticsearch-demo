@@ -2,10 +2,10 @@ package casia.isiteam.test.search;
 
 import casia.isiteam.api.elasticsearch.common.enums.FieldOccurs;
 import casia.isiteam.api.elasticsearch.common.enums.QueriesLevel;
-import casia.isiteam.api.elasticsearch.common.vo.SearchResult;
-import casia.isiteam.api.elasticsearch.common.vo.field.KeyWordsBuider;
-import casia.isiteam.api.elasticsearch.common.vo.field.KeywordsCombine;
 import casia.isiteam.api.elasticsearch.common.vo.field.RangeField;
+import casia.isiteam.api.elasticsearch.common.vo.field.search.KeyWordsBuider;
+import casia.isiteam.api.elasticsearch.common.vo.field.search.KeywordsCombine;
+import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
 
 /**
@@ -46,14 +46,13 @@ public class ExecuteQueryTotalTest {
                         ).
                         setExistsFilter("content","title").
                         setMissingFilter("it").
-//                openProfile().
-        setMinScore(0.1F).
+                        setMinScore(0.1F).
                         setHighlight(null,null,"title").
                         setReturnField("i*","site","pubtime","title").
                         setReturnField(true).
                         setReturnField(FieldOccurs.EXCLUDES,"ip").
                         executeQueryTotal();
 
-        System.out.println("total："+searchResult.getTotal());
+        System.out.println("total："+searchResult.getTotal_Doc());
     }
 }
