@@ -22,7 +22,9 @@ public class ResultPrint {
             System.out.println(JSON.toJSONString(s));
         });
     }
-    public static void outInfo(List<AggsInfo> aggsInfos, int childrens){
+
+
+    public static void outAggsInfo(List<AggsInfo> aggsInfos, int childrens){
         StringBuffer sb = new StringBuffer();
         for(int i=0;i<childrens;i++ ){
             sb.append("\t");
@@ -34,7 +36,7 @@ public class ResultPrint {
             System.out.print("}，{total_Operation："+s.getTotal_Operation());
             System.out.println("}");
             if(Validator.check(s.getChildren())){
-                outInfo(s.getChildren(),childrens+1);
+                outAggsInfo(s.getChildren(),childrens+1);
             }
             if( Validator.check(s.getQueryInfos()) ){
                 outInfo( childrens+1,s.getQueryInfos());
