@@ -13,6 +13,7 @@ import java.util.Arrays;
  * Email: zhiyou_wang@foxmail.com
  */
 public class CreateIndexTest {
+
     public static void main(String[] args) {
         //读取mapping信息
         String mapping = CasiaFileUtil.readAllBytes("mapping/test_mapping.txt");

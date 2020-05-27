@@ -1,7 +1,7 @@
 package casia.isiteam.test.delete;
 
-import casia.isiteam.api.elasticsearch.controller.CasiaEsCreate;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsDelete;
+
 
 /**
  * ClassName: DeleteIndexTest
