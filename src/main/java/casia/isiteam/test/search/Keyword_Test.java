@@ -11,6 +11,8 @@ import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
 import casia.isiteam.util.ResultPrint;
 
+import java.util.Arrays;
+
 /**
  * ClassName: Keyword_Test
  * Description: 关键词检索-测试
