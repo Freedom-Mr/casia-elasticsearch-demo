@@ -5,7 +5,7 @@ import casia.isiteam.api.elasticsearch.common.vo.field.aggs.AggsFieldBuider;
 import casia.isiteam.api.elasticsearch.common.vo.field.aggs.OperationInfo;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
-import casia.isiteam.util.ResultPrint;
+import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
  * ClassName: Operation_Aggs_Test
@@ -32,8 +32,6 @@ public class Operation_Aggs_Test {
 
 
         //输出
-        System.out.println(searchResult.getTotal_Doc());
-        System.out.println(searchResult.getScrollId());
-        ResultPrint.outAggsInfo(searchResult.getAggsInfos(),0);
+        OutInfo.out(searchResult);
     }
 }

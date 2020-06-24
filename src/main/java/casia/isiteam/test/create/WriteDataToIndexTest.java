@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -27,8 +28,22 @@ public class WriteDataToIndexTest {
         CasiaEsCreate casiaEsCreate = new CasiaEsCreate("data");
         //设置索引名称及其索引类型
         casiaEsCreate.setIndexName("demo_test","test_data");
-        //设置 数据列表、主键，写入到索引
+        /**
+         * 设置 数据列表、主键，写入到索引
+         * 注意该方法，部分写入失败数据无法体现
+         */
         boolean result = casiaEsCreate.writeData(datas,"id");
         System.out.println(result);
+
+        /**
+         * 设置 数据列表、主键，写入到索引
+         * 该方法，会返回写入、覆盖、失败数据量，并且会返回失败原因
+         */
+        Map<String,Object> rss = casiaEsCreate.writeDatas(datas,"id");
+        System.out.println(result);
+        rss.forEach((k,v)->{
+            System.out.println(k+"\t"+v);
+        });
+
     }
 }

@@ -1,11 +1,9 @@
 package casia.isiteam.test.aggregation;
 
-import casia.isiteam.api.elasticsearch.common.enums.FieldOccurs;
-import casia.isiteam.api.elasticsearch.common.enums.SortOrder;
 import casia.isiteam.api.elasticsearch.common.vo.field.aggs.*;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
-import casia.isiteam.util.ResultPrint;
+import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
  * ClassName: Date_Agga_Test
@@ -54,8 +52,6 @@ public class Date_Agga_Test {
         SearchResult searchResult = casiaEsSearch.executeAggsInfo();
 
         //输出
-        System.out.println(searchResult.getTotal_Doc());
-        System.out.println(searchResult.getScrollId());
-        ResultPrint.outAggsInfo(searchResult.getAggsInfos(),0);
+        OutInfo.out(searchResult);
     }
 }

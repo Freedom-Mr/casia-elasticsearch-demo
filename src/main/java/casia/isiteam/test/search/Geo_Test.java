@@ -9,7 +9,7 @@ import casia.isiteam.api.elasticsearch.common.vo.field.search.geo.GeoQueryInfo;
 import casia.isiteam.api.elasticsearch.common.vo.field.search.geo.LonLat;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
-import casia.isiteam.util.ResultPrint;
+import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
  * ClassName: Geo_Test
@@ -50,8 +50,7 @@ public class Geo_Test {
         SearchResult searchResult = casiaEsSearch.setReturnField("lal").executeQueryInfo();
 
         //结果打印
-        System.out.println("total_doc："+searchResult.getTotal_Doc());
-        System.out.println("scrollId："+searchResult.getScrollId());
-        ResultPrint.outQueryInfo(searchResult.getQueryInfos());
+        //输出
+        OutInfo.out(searchResult);
     }
 }

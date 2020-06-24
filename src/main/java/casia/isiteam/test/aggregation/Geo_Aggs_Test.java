@@ -9,7 +9,7 @@ import casia.isiteam.api.elasticsearch.common.vo.field.search.KeyWordsBuider;
 import casia.isiteam.api.elasticsearch.common.vo.field.search.KeywordsCombine;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
-import casia.isiteam.util.ResultPrint;
+import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
  * ClassName: Geo_Aggs_Test
@@ -47,7 +47,6 @@ public class Geo_Aggs_Test {
         SearchResult searchResult = casiaEsSearch.executeAggsInfo();
 
         //输出
-        System.out.println(searchResult.getTotal_Doc());
-        ResultPrint.outAggsInfo(searchResult.getAggsInfos(),0);
+        OutInfo.out(searchResult);
     }
 }

@@ -2,16 +2,11 @@ package casia.isiteam.test.search;
 
 import casia.isiteam.api.elasticsearch.common.enums.FieldOccurs;
 import casia.isiteam.api.elasticsearch.common.enums.QueriesLevel;
-import casia.isiteam.api.elasticsearch.common.enums.SortOrder;
-import casia.isiteam.api.elasticsearch.common.vo.field.RangeField;
-import casia.isiteam.api.elasticsearch.common.vo.field.SortField;
 import casia.isiteam.api.elasticsearch.common.vo.field.search.KeyWordsBuider;
 import casia.isiteam.api.elasticsearch.common.vo.field.search.KeywordsCombine;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
-import casia.isiteam.util.ResultPrint;
-
-import java.util.Arrays;
+import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
  * ClassName: Keyword_Test
@@ -49,8 +44,6 @@ public class Keyword_Test {
                 executeQueryInfo();
 
         //结果打印
-        System.out.println("total_doc："+searchResult.getTotal_Doc());
-        System.out.println("scrollId："+searchResult.getScrollId());
-        ResultPrint.outQueryInfo(searchResult.getQueryInfos());
+        OutInfo.out(searchResult);
     }
 }

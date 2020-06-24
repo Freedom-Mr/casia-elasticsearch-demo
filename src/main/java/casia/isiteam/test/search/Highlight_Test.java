@@ -6,7 +6,7 @@ import casia.isiteam.api.elasticsearch.common.vo.field.search.KeyWordsBuider;
 import casia.isiteam.api.elasticsearch.common.vo.field.search.KeywordsCombine;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
-import casia.isiteam.util.ResultPrint;
+import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
  * ClassName: Highlight_Test
@@ -31,9 +31,7 @@ public class Highlight_Test {
 
         SearchResult searchResult = casiaEsSearch.setReturnField("title").executeQueryInfo();
 
-        //结果打印
-        System.out.println("total_doc："+searchResult.getTotal_Doc());
-        System.out.println("scrollId："+searchResult.getScrollId());
-        ResultPrint.outQueryInfo(searchResult.getQueryInfos());
+        //输出
+        OutInfo.out(searchResult);
     }
 }

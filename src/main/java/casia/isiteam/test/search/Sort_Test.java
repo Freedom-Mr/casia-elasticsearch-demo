@@ -4,7 +4,7 @@ import casia.isiteam.api.elasticsearch.common.enums.SortOrder;
 import casia.isiteam.api.elasticsearch.common.vo.field.SortField;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
-import casia.isiteam.util.ResultPrint;
+import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
  * ClassName: Sort_Test
@@ -31,7 +31,6 @@ public class Sort_Test {
         SearchResult searchResult = casiaEsSearch.executeQueryInfo();
 
         //结果打印
-        System.out.println("total_doc："+searchResult.getTotal_Doc());
-        ResultPrint.outQueryInfo(searchResult.getQueryInfos());
+        OutInfo.out(searchResult);
     }
 }
