@@ -17,6 +17,10 @@ import java.util.stream.Collectors;
  * Email: zhiyou_wang@foxmail.com
  */
 public class WriteDataToIndexTest {
+    /**
+     * 写入数据
+     * @param args
+     */
     public static void main(String[] args) {
 
         //读取数据列表

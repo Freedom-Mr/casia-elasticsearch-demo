@@ -4,6 +4,7 @@ import casia.isiteam.api.elasticsearch.common.enums.FieldOccurs;
 import casia.isiteam.api.elasticsearch.common.vo.field.RangeField;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
+import casia.isiteam.api.elasticsearch.controller.api.CasiaEsApi;
 import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
@@ -20,15 +21,15 @@ public class Range_Test {
      */
     public static void main(String[] args) {
 
-        CasiaEsSearch casiaEsSearch = new CasiaEsSearch("web");
-        casiaEsSearch.setIndexName("test","test_data");
+        CasiaEsApi casiaEsApi = new CasiaEsApi("web");
+        casiaEsApi.search().setIndexName("test","test_data");
         //数据范围
-        casiaEsSearch.setRange(
+        casiaEsApi.search().setRange(
                 new RangeField(FieldOccurs.INCLUDES,"id",32174657,33677173),
                 new RangeField(FieldOccurs.EXCLUDES,"pubtime","2020-01-09 07:36:00",null)
         );
 
-        SearchResult searchResult = casiaEsSearch.executeQueryInfo();
+        SearchResult searchResult = casiaEsApi.search().executeQueryInfo();
 
         //结果打印
         OutInfo.out(searchResult);

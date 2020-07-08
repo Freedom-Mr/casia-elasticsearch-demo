@@ -2,23 +2,23 @@ package casia.isiteam.test.delete;
 
 import casia.isiteam.api.elasticsearch.controller.CasiaEsDelete;
 
-
 /**
- * ClassName: DeleteIndexTest
- * Description: 删除索引
+ * ClassName: ClaerCacheTest
+ * Description: 清空缓存
  * <p>
- * Created by casia.wzy on 2020/5/16
+ * Created by casia.wzy on 2020/7/8
  * Email: zhiyou_wang@foxmail.com
  */
-public class DeleteIndexTest {
+public class ClaerCacheTest {
     /**
-     * 删除索引
+     * 清空缓存
      * @param args
      */
     public static void main(String[] args) {
-        //读取索引地址配置
         CasiaEsDelete casiaEsDelete = new CasiaEsDelete("data");
         casiaEsDelete.setIndexName("demo_test","test_data");
-        casiaEsDelete.deleteIndexByName();
+
+        System.out.println(casiaEsDelete.clearCache());
+
     }
 }

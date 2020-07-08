@@ -6,6 +6,7 @@ import casia.isiteam.api.elasticsearch.common.vo.field.aggs.TermInfo;
 import casia.isiteam.api.elasticsearch.common.vo.field.aggs.TypeInfo;
 import casia.isiteam.api.elasticsearch.common.vo.result.SearchResult;
 import casia.isiteam.api.elasticsearch.controller.CasiaEsSearch;
+import casia.isiteam.api.elasticsearch.controller.api.CasiaEsApi;
 import casia.isiteam.api.elasticsearch.util.OutInfo;
 
 /**
@@ -21,11 +22,11 @@ public class Field_Aggs_Test {
      * @param args
      */
     public static void main(String[] args) {
-        CasiaEsSearch casiaEsSearch = new CasiaEsSearch("web");
-        casiaEsSearch.setIndexName("test","test_data");
+        CasiaEsApi casiaEsApi = new CasiaEsApi("web");
+        casiaEsApi.search().setIndexName("test","test_data");
 
         //单字段聚合：类型
-        casiaEsSearch.setAggregations(
+        casiaEsApi.search().setAggregations(
                 new AggsFieldBuider(new TypeInfo("eid"))
         );
 
@@ -35,7 +36,7 @@ public class Field_Aggs_Test {
         );*/
 
         //子字段聚合：返回前N个，每个详情下再次聚合
-        casiaEsSearch.setAggregations(
+        casiaEsApi.search().setAggregations(
                 new AggsFieldBuider(
                         new TermInfo("eid",2, 0L , SortOrder.DESC ,
                             new AggsFieldBuider( new TypeInfo("site") )
@@ -43,7 +44,7 @@ public class Field_Aggs_Test {
                 )
         );
 
-        SearchResult searchResult = casiaEsSearch.executeAggsInfo();
+        SearchResult searchResult = casiaEsApi.search().executeAggsInfo();
 
         //输出
         OutInfo.out(searchResult);
