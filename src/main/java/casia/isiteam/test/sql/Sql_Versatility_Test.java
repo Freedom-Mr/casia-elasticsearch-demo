@@ -13,6 +13,7 @@ import casia.isiteam.api.elasticsearch.util.OutInfo;
  */
 public class Sql_Versatility_Test {
     public static void main(String[] args) {
+        
         CasiaEsSql casiaEsSql = new CasiaEsSql("web");
 
 
