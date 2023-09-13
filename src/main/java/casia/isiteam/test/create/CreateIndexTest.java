@@ -24,7 +24,7 @@ public class CreateIndexTest {
         //读取索引地址配置
         CasiaEsCreate casiaEsCreate = new CasiaEsCreate("data");
         //或者直接传参初始化索引地址
-//        CasiaEsCreate casiaEsCreate = new CasiaEsCreate(Arrays.asList("106.75.137.175:61231"),"username","password");
+//        CasiaEsCreate casiaEsCreate = new CasiaEsCreate(Arrays.asList("127.0.0.1:61231"),"username","password");
 
         //创建索引
         boolean result = casiaEsCreate.createIndex("demo_test", mapping);
